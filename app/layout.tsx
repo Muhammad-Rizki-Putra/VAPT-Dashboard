@@ -3,12 +3,13 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "VAPT Otonom - Dashboard",
-  description: "Dashboard Pengetesan Laman",
+  title: "ARES - Dashboard",
+  description: "ARES - Autonomous Red-team Evaluation System",
 };
 
 export default function RootLayout({
@@ -17,17 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // Tambahkan suppressHydrationWarning agar next-themes tidak memicu error di console
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-        >
-          <LayoutWrapper>
-            {children}
-          </LayoutWrapper>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <LanguageProvider>
+            <LayoutWrapper>
+              {children}
+            </LayoutWrapper>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
