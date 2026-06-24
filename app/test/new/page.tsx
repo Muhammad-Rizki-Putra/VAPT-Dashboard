@@ -88,16 +88,16 @@ export default function NewScanPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       {/* Header */}
-      <div className="pb-4 border-b border-slate-200 dark:border-slate-800 transition-colors duration-300">
-        <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100">{t.newScan.title}</h1>
-        <p className="text-sm text-slate-500 dark:text-slate-400">{t.newScan.subtitle}</p>
+      <div className="pb-4 border-b border-slate-200 dark:border-zinc-800 transition-colors duration-300">
+        <h1 className="text-2xl font-bold text-slate-800 dark:text-zinc-100">{t.newScan.title}</h1>
+        <p className="text-sm text-slate-500 dark:text-zinc-400">{t.newScan.subtitle}</p>
       </div>
 
       <form className="space-y-8" onSubmit={handleSubmit}>
 
         {/* 1. Platform selection */}
-        <div className="bg-white dark:bg-slate-900 p-6 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm space-y-6 transition-colors duration-300">
-          <h3 className="text-base font-semibold text-slate-800 dark:text-slate-100 border-b border-slate-200 dark:border-slate-800 pb-3 transition-colors duration-300">
+        <div className="bg-white dark:bg-zinc-900 p-6 border border-slate-200 dark:border-zinc-800 rounded-lg shadow-sm space-y-6 transition-colors duration-300">
+          <h3 className="text-base font-semibold text-slate-800 dark:text-zinc-100 border-b border-slate-200 dark:border-zinc-800 pb-3 transition-colors duration-300">
             {t.newScan.selectCategory}
           </h3>
 
@@ -106,32 +106,32 @@ export default function NewScanPage() {
               const isOpen = openCategory === category.title;
               const hasSelection = category.items.some(i => i.id === selectedPlatform);
               return (
-                <div key={category.title} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden transition-colors duration-300">
+                <div key={category.title} className="border border-slate-200 dark:border-zinc-700 rounded-lg overflow-hidden transition-colors duration-300">
                   {/* Category header — clickable accordion trigger */}
                   <button
                     type="button"
                     onClick={() => setOpenCategory(isOpen ? null : category.title)}
                     className={`w-full flex items-center justify-between px-4 py-3 text-left transition-colors duration-200 ${
                       isOpen
-                        ? 'bg-blue-50 dark:bg-blue-900/10 border-b border-blue-100 dark:border-blue-900/30'
-                        : 'bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800'
+                        ? 'bg-blue-50 dark:bg-red-900/10 border-b border-blue-100 dark:border-red-900/30'
+                        : 'bg-slate-50 dark:bg-zinc-800/50 hover:bg-slate-100 dark:hover:bg-zinc-800'
                     }`}
                   >
                     <span className={`text-sm font-bold border-l-4 pl-3 transition-colors duration-200 ${
                       isOpen
-                        ? 'text-blue-700 dark:text-blue-400 border-blue-600 dark:border-blue-500'
-                        : 'text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-600'
+                        ? 'text-blue-700 dark:text-red-400 border-blue-600 dark:border-red-500'
+                        : 'text-slate-700 dark:text-zinc-200 border-slate-300 dark:border-zinc-600'
                     }`}>
                       {category.title}
                     </span>
                     <div className="flex items-center gap-2 flex-shrink-0">
                       {hasSelection && (
-                        <span className="text-[10px] font-semibold text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-2 py-0.5 rounded-full">
+                        <span className="text-[10px] font-semibold text-blue-600 dark:text-red-400 bg-blue-100 dark:bg-red-900/30 px-2 py-0.5 rounded-full">
                           ✓ selected
                         </span>
                       )}
                       <svg
-                        className={`w-4 h-4 text-slate-400 dark:text-slate-500 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                        className={`w-4 h-4 text-slate-400 dark:text-zinc-500 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
                         fill="none" stroke="currentColor" viewBox="0 0 24 24"
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -150,20 +150,20 @@ export default function NewScanPage() {
                               key={item.id}
                               className={`flex items-start space-x-3 p-4 border rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${
                                 isSelected
-                                  ? 'border-blue-600 dark:border-blue-500 bg-blue-50/50 dark:bg-blue-900/10 shadow-md'
-                                  : 'border-slate-200 dark:border-slate-800 hover:border-blue-600/40 dark:hover:border-blue-500/40 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                                  ? 'border-blue-600 dark:border-red-500 bg-blue-50/50 dark:bg-red-900/10 shadow-md'
+                                  : 'border-slate-200 dark:border-zinc-800 hover:border-blue-600/40 dark:hover:border-red-500/40 hover:bg-slate-50 dark:hover:bg-zinc-800/50'
                               }`}
                             >
                               <input
                                 type="radio"
                                 name="platform"
-                                className="mt-1 text-blue-600 dark:text-blue-500 focus:ring-blue-600 dark:focus:ring-blue-500 cursor-pointer"
+                                className="mt-1 text-blue-600 dark:text-red-500 focus:ring-blue-600 dark:focus:ring-red-500 cursor-pointer"
                                 checked={isSelected}
                                 onChange={() => setSelectedPlatform(item.id)}
                               />
                               <div className="flex flex-col w-full">
                                 <div className="flex items-center justify-between">
-                                  <span className="text-sm font-semibold text-slate-800 dark:text-slate-200 transition-colors duration-300">{item.name}</span>
+                                  <span className="text-sm font-semibold text-slate-800 dark:text-zinc-200 transition-colors duration-300">{item.name}</span>
                                   {!item.isAvailable && (
                                     <span className="text-[10px] font-medium bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800/50 px-2 py-0.5 rounded-full whitespace-nowrap transition-colors duration-300">
                                       {t.newScan.comingSoon}
@@ -172,7 +172,7 @@ export default function NewScanPage() {
                                 </div>
                                 <div className={`grid transition-all duration-300 ease-in-out ${isSelected ? 'grid-rows-[1fr] opacity-100 mt-1.5' : 'grid-rows-[0fr] opacity-0 mt-0'}`}>
                                   <div className="overflow-hidden">
-                                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed transition-colors duration-300">{item.desc}</p>
+                                    <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed transition-colors duration-300">{item.desc}</p>
                                   </div>
                                 </div>
                               </div>
@@ -191,17 +191,17 @@ export default function NewScanPage() {
         {/* 2. Scan config (shown after platform selected) */}
         <div className={`grid transition-all duration-500 ease-in-out ${selectedPlatform ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
           <div className="overflow-hidden p-1 -m-1">
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-6 border border-slate-200 dark:border-slate-800 rounded-lg shadow-sm mt-1 space-y-5 transition-colors duration-300">
+            <div className="bg-slate-50 dark:bg-zinc-900/50 p-6 border border-slate-200 dark:border-zinc-800 rounded-lg shadow-sm mt-1 space-y-5 transition-colors duration-300">
 
               <AnimatedWrapper show={isAvailable}>
                 {/* Target URL */}
                 <div className="space-y-1.5">
-                  <label className="block text-sm font-semibold text-slate-800 dark:text-slate-200 transition-colors duration-300">
+                  <label className="block text-sm font-semibold text-slate-800 dark:text-zinc-200 transition-colors duration-300">
                     {t.newScan.targetUrl} <span className="text-red-500 dark:text-red-400">{t.newScan.required}</span>
                   </label>
                   <input
                     type="url"
-                    className="w-full p-2.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-500 focus:border-blue-600 dark:focus:border-blue-500 outline-none text-sm transition-all duration-300 placeholder-slate-400 dark:placeholder-slate-600"
+                    className="w-full p-2.5 border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 rounded-md focus:ring-2 focus:ring-blue-600 dark:focus:ring-red-500 focus:border-blue-600 dark:focus:border-red-500 outline-none text-sm transition-all duration-300 placeholder-slate-400 dark:placeholder-zinc-600"
                     placeholder="http://localhost:3002"
                     value={targetUrl}
                     onChange={(e) => setTargetUrl(e.target.value)}
@@ -211,7 +211,7 @@ export default function NewScanPage() {
 
                 {/* Testing Mode */}
                 <div className="space-y-2 pt-1">
-                  <label className="block text-sm font-semibold text-slate-800 dark:text-slate-200 transition-colors duration-300">
+                  <label className="block text-sm font-semibold text-slate-800 dark:text-zinc-200 transition-colors duration-300">
                     {t.newScan.testingMode} <span className="text-red-500 dark:text-red-400">{t.newScan.required}</span>
                   </label>
                   <div className="grid grid-cols-3 gap-3">
@@ -220,8 +220,8 @@ export default function NewScanPage() {
                         key={m.value}
                         className={`flex flex-col p-3 border rounded-lg cursor-pointer transition-all duration-200 ${
                           testingMode === m.value
-                            ? 'border-blue-600 dark:border-blue-500 bg-blue-50/50 dark:bg-blue-900/10'
-                            : 'border-slate-200 dark:border-slate-700 hover:border-blue-400/60 dark:hover:border-blue-600/40 hover:bg-white dark:hover:bg-slate-800/40'
+                            ? 'border-blue-600 dark:border-red-500 bg-blue-50/50 dark:bg-red-900/10'
+                            : 'border-slate-200 dark:border-zinc-700 hover:border-blue-400/60 dark:hover:border-red-600/40 hover:bg-white dark:hover:bg-zinc-800/40'
                         }`}
                       >
                         <input
@@ -232,10 +232,10 @@ export default function NewScanPage() {
                           checked={testingMode === m.value}
                           onChange={() => { setTestingMode(m.value); setUsername(''); setPassword(''); setSwaggerUrl(''); }}
                         />
-                        <span className={`text-xs font-bold mb-0.5 ${testingMode === m.value ? 'text-blue-600 dark:text-blue-400' : 'text-slate-700 dark:text-slate-300'}`}>
+                        <span className={`text-xs font-bold mb-0.5 ${testingMode === m.value ? 'text-blue-600 dark:text-red-400' : 'text-slate-700 dark:text-zinc-300'}`}>
                           {m.label}
                         </span>
-                        <span className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">{m.desc}</span>
+                        <span className="text-[10px] text-slate-500 dark:text-zinc-400 leading-relaxed">{m.desc}</span>
                       </label>
                     ))}
                   </div>
@@ -245,24 +245,24 @@ export default function NewScanPage() {
                 <AnimatedWrapper show={needsCreds}>
                   <div className="grid grid-cols-2 gap-4 pt-1">
                     <div className="space-y-1.5">
-                      <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
+                      <label className="block text-xs font-semibold text-slate-700 dark:text-zinc-300">
                         {t.newScan.username} <span className="text-red-500">{t.newScan.required}</span>
                       </label>
                       <input
                         type="text"
-                        className="w-full p-2.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-500 outline-none text-sm transition-all duration-300 placeholder-slate-400 dark:placeholder-slate-600"
+                        className="w-full p-2.5 border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 rounded-md focus:ring-2 focus:ring-blue-600 dark:focus:ring-red-500 outline-none text-sm transition-all duration-300 placeholder-slate-400 dark:placeholder-zinc-600"
                         placeholder="admin@example.com"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
+                      <label className="block text-xs font-semibold text-slate-700 dark:text-zinc-300">
                         {t.newScan.password} <span className="text-red-500">{t.newScan.required}</span>
                       </label>
                       <input
                         type="password"
-                        className="w-full p-2.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-500 outline-none text-sm transition-all duration-300 placeholder-slate-400 dark:placeholder-slate-600"
+                        className="w-full p-2.5 border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 rounded-md focus:ring-2 focus:ring-blue-600 dark:focus:ring-red-500 outline-none text-sm transition-all duration-300 placeholder-slate-400 dark:placeholder-zinc-600"
                         placeholder="••••••••"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -274,12 +274,12 @@ export default function NewScanPage() {
                 {/* Swagger URL */}
                 <AnimatedWrapper show={needsSwagger}>
                   <div className="space-y-1.5 pt-1">
-                    <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300">
+                    <label className="block text-xs font-semibold text-slate-700 dark:text-zinc-300">
                       {t.newScan.swaggerUrl} <span className="text-red-500">{t.newScan.required}</span>
                     </label>
                     <input
                       type="url"
-                      className="w-full p-2.5 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-500 outline-none text-sm transition-all duration-300 placeholder-slate-400 dark:placeholder-slate-600"
+                      className="w-full p-2.5 border border-slate-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-slate-800 dark:text-zinc-100 rounded-md focus:ring-2 focus:ring-blue-600 dark:focus:ring-red-500 outline-none text-sm transition-all duration-300 placeholder-slate-400 dark:placeholder-zinc-600"
                       placeholder="http://localhost:3002/api-docs"
                       value={swaggerUrl}
                       onChange={(e) => setSwaggerUrl(e.target.value)}
@@ -296,8 +296,8 @@ export default function NewScanPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                     </svg>
                   </div>
-                  <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 transition-colors duration-300">{t.newScan.moduleInDev}</h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 max-w-md mx-auto leading-relaxed transition-colors duration-300">
+                  <h4 className="text-sm font-bold text-slate-800 dark:text-zinc-200 transition-colors duration-300">{t.newScan.moduleInDev}</h4>
+                  <p className="text-xs text-slate-500 dark:text-zinc-400 mt-1.5 max-w-md mx-auto leading-relaxed transition-colors duration-300">
                     {t.newScan.moduleInDevDesc.replace('{name}', selectedItem?.name ?? '')}
                   </p>
                 </div>
@@ -319,7 +319,7 @@ export default function NewScanPage() {
           <button
             type="submit"
             disabled={!canSubmit}
-            className="bg-blue-600 dark:bg-blue-500 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors shadow-sm disabled:bg-slate-300 dark:disabled:bg-slate-800 disabled:text-slate-500 dark:disabled:text-slate-500 disabled:cursor-not-allowed cursor-pointer flex items-center space-x-2"
+            className="bg-blue-600 dark:bg-red-500 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-blue-700 dark:hover:bg-red-600 transition-colors shadow-sm disabled:bg-slate-300 dark:disabled:bg-zinc-800 disabled:text-slate-500 dark:disabled:text-zinc-500 disabled:cursor-not-allowed cursor-pointer flex items-center space-x-2"
           >
             {isSubmitting ? (
               <>

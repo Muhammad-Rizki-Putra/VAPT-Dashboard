@@ -95,11 +95,11 @@ export default function ScanProgressPage() {
         </div>
         <div className="flex justify-center gap-4">
           <Link href="/test/new">
-            <button className="bg-blue-600 dark:bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">
+            <button className="bg-blue-600 dark:bg-red-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">
               {t.scan.newScan}
             </button>
           </Link>
-          <Link href="/test/history" className="flex items-center text-sm text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <Link href="/test/history" className="flex items-center text-sm text-slate-500 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-red-400 transition-colors">
             {t.scan.backHistory}
           </Link>
         </div>
@@ -115,10 +115,10 @@ export default function ScanProgressPage() {
     <div className="max-w-4xl mx-auto mt-6 space-y-6">
 
       {/* Header */}
-      <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+      <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-zinc-800">
         <div>
-          <h1 className="text-xl font-bold text-slate-800 dark:text-slate-100">{t.scan.title}</h1>
-          <p className="text-xs text-slate-500 dark:text-slate-500 font-mono mt-0.5">{scanId}</p>
+          <h1 className="text-xl font-bold text-slate-800 dark:text-zinc-100">{t.scan.title}</h1>
+          <p className="text-xs text-slate-500 dark:text-zinc-500 font-mono mt-0.5">{scanId}</p>
         </div>
         {isCompleted && (
           <span className="text-xs text-green-600 dark:text-green-400 font-semibold bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/50 px-3 py-1 rounded-full">
@@ -128,21 +128,21 @@ export default function ScanProgressPage() {
       </div>
 
       {/* Progress Section */}
-      <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-6 shadow-sm space-y-4 transition-colors duration-300">
+      <div className="bg-white dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-lg p-6 shadow-sm space-y-4 transition-colors duration-300">
 
         <div className="flex items-center gap-4">
-          <div className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden">
+          <div className="flex-1 bg-slate-100 dark:bg-zinc-800 rounded-full h-2.5 overflow-hidden">
             <div
-              className="bg-blue-600 dark:bg-blue-500 h-2.5 rounded-full transition-all duration-700 ease-out"
+              className="bg-blue-600 dark:bg-red-500 h-2.5 rounded-full transition-all duration-700 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>
-          <span className="text-lg font-bold text-blue-600 dark:text-blue-400 w-12 text-right tabular-nums">
+          <span className="text-lg font-bold text-blue-600 dark:text-red-400 w-12 text-right tabular-nums">
             {progress}%
           </span>
         </div>
 
-        <div className="flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex items-center space-x-2 text-sm text-slate-600 dark:text-zinc-400">
           {!isCompleted && (
             <svg className="animate-spin h-3.5 w-3.5 text-blue-500 flex-shrink-0" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
@@ -161,14 +161,14 @@ export default function ScanProgressPage() {
               <React.Fragment key={threshold}>
                 <div className="flex flex-col items-center gap-1 flex-1 min-w-0">
                   <div className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
-                    done ? 'bg-blue-500' : active ? 'bg-blue-300 animate-pulse' : 'bg-slate-200 dark:bg-slate-700'
+                    done ? 'bg-blue-500' : active ? 'bg-blue-300 animate-pulse' : 'bg-slate-200 dark:bg-zinc-700'
                   }`} />
                   <span className={`text-[9px] text-center leading-tight transition-colors duration-300 truncate w-full text-center ${
-                    done ? 'text-slate-600 dark:text-slate-400' : 'text-slate-300 dark:text-slate-600'
+                    done ? 'text-slate-600 dark:text-zinc-400' : 'text-slate-300 dark:text-zinc-600'
                   }`}>{label.split(' — ')[0]}</span>
                 </div>
                 {i < steps.length - 1 && (
-                  <div className={`h-px flex-1 transition-colors duration-300 mb-3 ${done ? 'bg-blue-400' : 'bg-slate-200 dark:bg-slate-700'}`} />
+                  <div className={`h-px flex-1 transition-colors duration-300 mb-3 ${done ? 'bg-blue-400' : 'bg-slate-200 dark:bg-zinc-700'}`} />
                 )}
               </React.Fragment>
             );
@@ -222,7 +222,7 @@ export default function ScanProgressPage() {
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap gap-4 text-xs text-slate-500 dark:text-slate-400">
+      <div className="flex flex-wrap gap-4 text-xs text-slate-500 dark:text-zinc-400">
         <span><span className="text-cyan-500 font-semibold">■</span> {t.scan.legendAgent}</span>
         <span><span className="text-violet-400">■</span> {t.scan.legendLlm}</span>
         <span><span className="text-amber-400">■</span> {t.scan.legendTool}</span>
@@ -233,7 +233,7 @@ export default function ScanProgressPage() {
       <div className="text-center pb-4">
         <Link
           href="/test/history"
-          className="text-sm text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          className="text-sm text-slate-400 dark:text-zinc-500 hover:text-blue-600 dark:hover:text-red-400 transition-colors"
         >
           {t.scan.backToHistory}
         </Link>
