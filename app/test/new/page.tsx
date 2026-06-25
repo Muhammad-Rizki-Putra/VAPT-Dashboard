@@ -20,9 +20,11 @@ export default function NewScanPage() {
     {
       title: t.platforms.cat2,
       items: [
-        { id: "web",    name: t.platforms.web,    desc: t.platforms['web-desc'],    isAvailable: true },
-        { id: "api",    name: t.platforms.api,    desc: t.platforms['api-desc'],    isAvailable: true },
-        { id: "mobile", name: t.platforms.mobile, desc: t.platforms['mobile-desc'], isAvailable: false },
+        { id: "web",    name: t.platforms.web,       desc: t.platforms['web-desc'],    isAvailable: true },
+        { id: "web-va", name: t.platforms['web-va'], desc: t.platforms['web-va-desc'], isAvailable: true },
+        { id: "api",    name: t.platforms.api,       desc: t.platforms['api-desc'],    isAvailable: true },
+        { id: "api-va", name: t.platforms['api-va'], desc: t.platforms['api-va-desc'], isAvailable: true },
+        { id: "mobile", name: t.platforms.mobile,    desc: t.platforms['mobile-desc'], isAvailable: false },
       ],
     },
     {

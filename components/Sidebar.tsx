@@ -82,7 +82,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
               ARES
             </span>
             <span className="text-[9px] text-slate-400 dark:text-zinc-500 min-w-[110px]">
-              Autonomous Red-team Evaluation System
+              Autonomous Red & Blue Team Evaluation System
             </span>
           </div>
         </div>

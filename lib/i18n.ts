@@ -2,7 +2,7 @@ export type Language = 'id' | 'en';
 
 const id = {
   appTitle: 'ARES',
-  appSubtitle: 'Autonomous Red-team Evaluation System',
+  appSubtitle: 'Autonomous Red & Blue Team Evaluation System',
   toggleTheme: 'Toggle Gelap/Terang',
 
   nav: {
@@ -25,7 +25,7 @@ const id = {
 
   newScan: {
     title: 'Mulai Pengetesan Baru',
-    subtitle: 'Konfigurasi parameter ARES - Autonomous Red-team Evaluation System',
+    subtitle: 'Konfigurasi parameter ARES - Autonomous Red & Blue Team Evaluation System',
     selectCategory: 'Pilih Kategori & Platform Target',
     comingSoon: 'Segera Hadir',
     targetUrl: 'Target URL / Endpoint Utama',
@@ -110,8 +110,8 @@ const id = {
     loading: 'Memuat laporan...',
     errLoad: 'Gagal memuat hasil scan. Scan mungkin belum selesai atau ID tidak valid.',
     errNotFound: 'Laporan tidak ditemukan',
-    formalTitle: 'Laporan ARES Formal',
-    formalSubtitle: 'Autonomous Red-team Evaluation System',
+    formalTitle: 'ARES SYSTEM VAPT REPORT',
+    formalSubtitle: '(AI) Autonomous Red-blue Team Evaluation System',
     mode: 'Mode',
     metaTarget: 'Target URL',
     metaDate: 'Tanggal Pengujian',
@@ -137,7 +137,7 @@ const id = {
     s4Title: '4. Rekomendasi Perbaikan',
     defaultRec: 'Terapkan patch keamanan terbaru dan review konfigurasi.',
     s5Title: '5. Kesimpulan',
-    footer: 'Laporan dibuat otomatis oleh ARES — Autonomous Red-team Evaluation System',
+    footer: 'Laporan dibuat otomatis oleh ARES — Autonomous Red & Blue Team Evaluation System',
     gradeS: { label: 'SUPER SECURE', desc: 'Tidak ada kerentanan ditemukan. Sistem dalam kondisi sangat aman.' },
     gradeA: { label: 'EXCELLENT',    desc: 'Hanya kerentanan Low ditemukan. Risiko minimal, tidak ada tindakan mendesak.' },
     gradeB: { label: 'GOOD',         desc: 'Terdapat kerentanan Medium. Perlu diperbaiki dalam waktu dekat.' },
@@ -152,7 +152,7 @@ const id = {
       { key: 'config',    label: 'Konfigurasi' },
     ],
     conclusionTemplate: (url: string, mode: string, total: number, high: number, medium: number, low: number, grade: string, gradeLabel: string) =>
-      `Pengujian keamanan terhadap ${url} berhasil dilakukan menggunakan ARES — Autonomous Red-team Evaluation System (${mode}). Ditemukan total ${total} kerentanan — ${high} High, ${medium} Medium, ${low} Low. Sistem mendapat penilaian keamanan Grade ${grade} (${gradeLabel}). Disarankan untuk melakukan perbaikan sesuai rekomendasi dan melakukan pengujian ulang setelah perbaikan diterapkan.`,
+      `Pengujian keamanan terhadap ${url} berhasil dilakukan menggunakan ARES — Autonomous Red & Blue Team Evaluation System (${mode}). Ditemukan total ${total} kerentanan — ${high} High, ${medium} Medium, ${low} Low. Sistem mendapat penilaian keamanan Grade ${grade} (${gradeLabel}). Disarankan untuk melakukan perbaikan sesuai rekomendasi dan melakukan pengujian ulang setelah perbaikan diterapkan.`,
     methodTemplate: (tools: string) => `Automated VAPT — ${tools}`,
   },
 
@@ -165,9 +165,13 @@ const id = {
     'ad-identity': 'Active Directory (AD)',
     'ad-identity-desc': 'Domain Controller, Kerberoasting, LDAP, Privilege Escalation.',
     web: 'Web Application VAPT',
-    'web-desc': 'Frontend/Backend, SQL Injection, XSS, Broken Access Control.',
+    'web-desc': 'Frontend/Backend, SQL Injection, XSS, Broken Access Control. Termasuk eksploitasi aktif.',
+    'web-va': 'Web Application VA',
+    'web-va-desc': 'Frontend/Backend. Identifikasi & pemetaan kerentanan tanpa eksploitasi aktif.',
     api: 'API VAPT',
-    'api-desc': 'REST, SOAP, GraphQL, endpoint auth & rate limiting.',
+    'api-desc': 'REST, SOAP, GraphQL, endpoint auth & rate limiting. Termasuk eksploitasi aktif.',
+    'api-va': 'API VA',
+    'api-va-desc': 'REST, SOAP, GraphQL. Pemindaian & penilaian kerentanan endpoint tanpa eksploitasi aktif.',
     mobile: 'Mobile VAPT',
     'mobile-desc': 'Android (APK) & iOS (IPA). Analisis statis & dinamis.',
     cloud: 'Cloud Infrastructure',
@@ -177,7 +181,7 @@ const id = {
 
 const en: typeof id = {
   appTitle: 'ARES',
-  appSubtitle: 'Autonomous Red-team Evaluation System',
+  appSubtitle: 'Autonomous Red & Blue Team Evaluation System',
   toggleTheme: 'Toggle Dark/Light Mode',
 
   nav: {
@@ -200,7 +204,7 @@ const en: typeof id = {
 
   newScan: {
     title: 'Start New Testing',
-    subtitle: 'Configure ARES - Autonomous Red-team Evaluation System parameters',
+    subtitle: 'Configure ARES - Autonomous Red & Blue Team Evaluation System parameters',
     selectCategory: 'Select Category & Target Platform',
     comingSoon: 'Coming Soon',
     targetUrl: 'Target URL / Main Endpoint',
@@ -285,8 +289,8 @@ const en: typeof id = {
     loading: 'Loading report...',
     errLoad: 'Failed to load scan results. Scan may not be complete or ID is invalid.',
     errNotFound: 'Report not found',
-    formalTitle: 'Formal ARES Report',
-    formalSubtitle: 'Autonomous Red-team Evaluation System',
+    formalTitle: 'ARES SYSTEM VAPT REPORT',
+    formalSubtitle: '(AI) Autonomous Red-blue Team Evaluation System',
     mode: 'Mode',
     metaTarget: 'Target URL',
     metaDate: 'Test Date',
@@ -312,7 +316,7 @@ const en: typeof id = {
     s4Title: '4. Remediation Recommendations',
     defaultRec: 'Apply the latest security patches and review configuration.',
     s5Title: '5. Conclusion',
-    footer: 'Report generated automatically by ARES — Autonomous Red-team Evaluation System',
+    footer: 'Report generated automatically by ARES — Autonomous Red & Blue Team Evaluation System',
     gradeS: { label: 'SUPER SECURE', desc: 'No vulnerabilities found. System is in excellent condition.' },
     gradeA: { label: 'EXCELLENT',    desc: 'Only Low vulnerabilities found. Minimal risk, no urgent action needed.' },
     gradeB: { label: 'GOOD',         desc: 'Medium vulnerabilities present. Should be fixed soon.' },
@@ -327,7 +331,7 @@ const en: typeof id = {
       { key: 'config',    label: 'Configuration' },
     ],
     conclusionTemplate: (url: string, mode: string, total: number, high: number, medium: number, low: number, grade: string, gradeLabel: string) =>
-      `Security testing of ${url} was successfully performed using ARES — Autonomous Red-team Evaluation System (${mode}). A total of ${total} vulnerabilities were found — ${high} High, ${medium} Medium, ${low} Low. The system received a security grade of ${grade} (${gradeLabel}). It is recommended to address issues per the recommendations and re-test after fixes are applied.`,
+      `Security testing of ${url} was successfully performed using ARES — Autonomous Red & Blue Team Evaluation System (${mode}). A total of ${total} vulnerabilities were found — ${high} High, ${medium} Medium, ${low} Low. The system received a security grade of ${grade} (${gradeLabel}). It is recommended to address issues per the recommendations and re-test after fixes are applied.`,
     methodTemplate: (tools: string) => `Automated VAPT — ${tools}`,
   },
 
@@ -340,9 +344,13 @@ const en: typeof id = {
     'ad-identity': 'Active Directory (AD)',
     'ad-identity-desc': 'Domain Controller, Kerberoasting, LDAP, Privilege Escalation.',
     web: 'Web Application VAPT',
-    'web-desc': 'Frontend/Backend, SQL Injection, XSS, Broken Access Control.',
+    'web-desc': 'Frontend/Backend, SQL Injection, XSS, Broken Access Control. Includes active exploitation.',
+    'web-va': 'Web Application VA',
+    'web-va-desc': 'Frontend/Backend. Vulnerability identification & mapping without active exploitation.',
     api: 'API VAPT',
-    'api-desc': 'REST, SOAP, GraphQL, endpoint auth & rate limiting.',
+    'api-desc': 'REST, SOAP, GraphQL, endpoint auth & rate limiting. Includes active exploitation.',
+    'api-va': 'API VA',
+    'api-va-desc': 'REST, SOAP, GraphQL. Endpoint vulnerability scanning & assessment without active exploitation.',
     mobile: 'Mobile VAPT',
     'mobile-desc': 'Android (APK) & iOS (IPA). Static & dynamic analysis.',
     cloud: 'Cloud Infrastructure',

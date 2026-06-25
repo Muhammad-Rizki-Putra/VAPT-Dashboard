@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ARES - Dashboard",
-  description: "ARES - Autonomous Red-team Evaluation System",
+  description: "ARES - Autonomous Red & Blue Team Evaluation System",
 };
 
 export default function RootLayout({
