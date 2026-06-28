@@ -46,8 +46,8 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
         isCollapsed ? 'w-[70px]' : 'w-64'
       }`}
     >
-      {/* Logo + Toggle */}
-      <div className="h-16 flex items-center justify-between px-3 border-b border-slate-200 dark:border-zinc-800">
+      {/* BAGIAN ATAS: Logo Merk */}
+      <div className="h-16 flex items-center justify-between border-b border-slate-200 dark:border-zinc-800">
         <div
           onClick={() => isCollapsed && setIsCollapsed(false)}
           className={`flex items-center overflow-hidden transition-all duration-300 group/logo ${
@@ -57,12 +57,12 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
         >
           <div className="relative flex items-center justify-center flex-shrink-0">
             <Image
-              src="/ares-logo-01_result.webp"
-              alt="Logo"
-              width={80}
-              height={32}
+              src="/toyota_logo.png"
+              alt="Brand Logo"
+              width={120}
+              height={40}
               className={`object-contain transition-all duration-300 ${
-                isCollapsed ? 'w-12 group-hover/logo:opacity-0' : 'w-12'
+                isCollapsed ? 'w-10 h-10 group-hover/logo:opacity-0' : 'w-max px-3'
               }`}
               priority
             />
@@ -71,23 +71,8 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
               <ChevronRight size={22} className="text-slate-500 dark:text-zinc-400 group-hover/logo:text-blue-600 dark:group-hover/logo:text-red-400" />
             </div>
           </div>
-          
-          {/* PERBAIKAN 1: Hapus class 'hidden'. Gunakan max-w dan min-w untuk mencegah reflow 4 baris */}
-          <div
-            className={`flex flex-col leading-tight overflow-hidden transition-all duration-300 ${
-              isCollapsed ? 'max-w-0 opacity-0' : 'max-w-[120px] opacity-100'
-            }`}
-          >
-            <span className="text-[11px] font-bold text-blue-600 dark:text-red-400 whitespace-nowrap tracking-wide uppercase">
-              ARES
-            </span>
-            <span className="text-[9px] text-slate-400 dark:text-zinc-500 min-w-[110px]">
-              Autonomous Red & Blue Team Evaluation System
-            </span>
-          </div>
         </div>
 
-        {/* Tombol Collapse diubah ke opacity dan width animation untuk mencegah lompatan */}
         <button
           onClick={() => setIsCollapsed(true)}
           className={`p-1.5 rounded-md hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-500 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-red-500 transition-all duration-300 flex-shrink-0 ${
@@ -100,7 +85,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 p-2.5 space-y-1 overflow-hidden">
+      <nav className="flex-1 p-2.5 space-y-1 overflow-y-auto">
         {/* Dashboard */}
         <Link href="/" title={isCollapsed ? t.nav.dashboard : undefined}>
           <div className={navItemCls(isActive('/'))}>
@@ -149,7 +134,6 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
               {t.nav.testingGroup}
             </span>
 
-            {/* PERBAIKAN 2: Hilangkan render kondisional (&&). Gunakan transisi w-0 dan opacity-0 */}
             <ChevronDown
               size={14}
               className={`flex-shrink-0 transition-all duration-300 ${
@@ -188,7 +172,6 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
             </div>
           </div>
 
-          {/* PERBAIKAN 3: Ganti render kondisional ke CSS max-height dan opacity */}
           <div className={`transition-all duration-300 overflow-hidden ${isCollapsed ? 'max-h-32 opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="space-y-1 pt-1">
               <Link href="/test/new" title={t.nav.newScan}>
@@ -209,6 +192,35 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
           </div>
         </div>
       </nav>
+
+      {/* BAGIAN BAWAH: Logo .webp dan Teks disesuaikan seperti gambar referensi */}
+      <div className="p-4 border-t border-slate-200 dark:border-zinc-800 mt-auto flex justify-center">
+        <div className="flex flex-col items-center justify-center overflow-hidden transition-all duration-300">
+          <div className="flex items-center justify-center flex-shrink-0">
+            <Image
+              src="/ares-logo-01_result.webp"
+              alt="ARES Logo"
+              width={120}
+              height={120}
+              className={`object-contain transition-all duration-300 ${
+                isCollapsed ? 'w-10' : 'w-24 mb-3'
+              }`}
+            />
+          </div>
+          
+          <div
+            className={`flex flex-col items-center text-center overflow-hidden transition-all duration-300 ${
+              isCollapsed ? 'max-h-0 opacity-0' : 'max-h-24 opacity-100'
+            }`}
+          >
+            <span className="text-[12px] font-bold text-blue-600 dark:text-red-500 leading-snug">
+              (AI) Autonomous <br />
+              Red & Blue Team <br />
+              Evaluation System
+            </span>
+          </div>
+        </div>
+      </div>
     </aside>
   );
 }
