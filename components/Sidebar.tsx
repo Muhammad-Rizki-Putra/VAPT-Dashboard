@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react"; // Tambahkan useEffect, useState
+import { useTheme } from "next-themes"; // Tambahkan ini (pastikan sudah instal 'next-themes')
 import {
   ChevronDown,
   ChevronLeft,
@@ -23,6 +24,15 @@ interface SidebarProps {
 export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
   const { t } = useLang();
   const pathname = usePathname();
+  
+  // Logika untuk mendeteksi tema dan menghindari kesalahan hidrasi
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // useEffect untuk memastikan komponen dimuat di sisi klien sebelum memeriksa tema
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const [openGroup, setOpenGroup] = useState<string | null>('testing');
 
@@ -39,6 +49,10 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
         ? 'bg-blue-600 dark:bg-red-500 text-white'
         : 'text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800/60 hover:text-slate-900 dark:hover:text-zinc-100'
     }`;
+
+  // Tentukan gambar logo berdasarkan tema yang terdeteksi
+  const currentTheme = mounted ? (resolvedTheme || theme) : 'light';
+  const logoSrc = currentTheme === 'dark' ? '/ares-logo-blue_result.webp' : '/ares-logo-black_result.webp';
 
   return (
     <aside
@@ -62,7 +76,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
               width={120}
               height={40}
               className={`object-contain transition-all duration-300 ${
-                isCollapsed ? 'w-10 h-10 group-hover/logo:opacity-0' : 'w-max px-3'
+                isCollapsed ? 'w-10 h-10 group-hover/logo:opacity-0' : 'w-auto px-15'
               }`}
               priority
             />
@@ -193,31 +207,20 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
         </div>
       </nav>
 
-      {/* BAGIAN BAWAH: Logo .webp dan Teks disesuaikan seperti gambar referensi */}
-      <div className="p-4 border-t border-slate-200 dark:border-zinc-800 mt-auto flex justify-center">
+      {/* BAGIAN BAWAH: Logo .webp dan Teks disesuaikan seperti gambar referensi - Sekarang Ganti Gambar Berbeda Berdasarkan Tema */}
+      <div className="border-t border-slate-200 dark:border-zinc-800 mt-auto flex justify-center">
         <div className="flex flex-col items-center justify-center overflow-hidden transition-all duration-300">
           <div className="flex items-center justify-center flex-shrink-0">
+            {/* Gunakan logoSrc dinamis di sini */}
             <Image
-              src="/ares-logo-01_result.webp"
+              src={logoSrc}
               alt="ARES Logo"
-              width={120}
-              height={120}
+              width={150}
+              height={150}
               className={`object-contain transition-all duration-300 ${
-                isCollapsed ? 'w-10' : 'w-24 mb-3'
+                isCollapsed ? 'p-2 w-max' : 'p-4 w-max mb-3'
               }`}
             />
-          </div>
-          
-          <div
-            className={`flex flex-col items-center text-center overflow-hidden transition-all duration-300 ${
-              isCollapsed ? 'max-h-0 opacity-0' : 'max-h-24 opacity-100'
-            }`}
-          >
-            <span className="text-[12px] font-bold text-blue-600 dark:text-red-500 leading-snug">
-              (AI) Autonomous <br />
-              Red & Blue Team <br />
-              Evaluation System
-            </span>
           </div>
         </div>
       </div>
