@@ -215,7 +215,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
             <Image
               src={logoSrc}
               alt="ARES Logo"
-              width={150}
+              width={120}
               height={150}
               className={`object-contain transition-all duration-300 ${
                 isCollapsed ? 'p-2 w-max' : 'p-4 w-max mb-3'
