@@ -46,8 +46,8 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
   const navItemCls = (active: boolean) =>
     `flex items-center px-3 py-2.5 rounded-md transition-colors group cursor-pointer text-sm font-medium ${
       active
-        ? 'bg-blue-600 dark:bg-red-500 text-white'
-        : 'text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800/60 hover:text-slate-900 dark:hover:text-zinc-100'
+        ? 'bg-red-600 dark:bg-blue-500 text-white'
+        : 'text-zinc-600 dark:text-slate-400 hover:bg-zinc-100 dark:hover:bg-slate-800/60 hover:text-zinc-900 dark:hover:text-slate-100'
     }`;
 
   // Tentukan gambar logo berdasarkan tema yang terdeteksi
@@ -56,12 +56,12 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
 
   return (
     <aside
-      className={`bg-white dark:bg-zinc-950 border-r border-slate-200 dark:border-zinc-800 flex flex-col h-screen fixed z-20 transition-all duration-300 ease-in-out ${
+      className={`bg-white dark:bg-slate-950 border-r border-zinc-200 dark:border-slate-800 flex flex-col h-screen fixed z-20 transition-all duration-300 ease-in-out ${
         isCollapsed ? 'w-[70px]' : 'w-64'
       }`}
     >
       {/* BAGIAN ATAS: Logo Merk */}
-      <div className="h-16 flex items-center justify-between border-b border-slate-200 dark:border-zinc-800">
+      <div className="h-16 flex items-center justify-between border-b border-zinc-200 dark:border-slate-800">
         <div
           onClick={() => isCollapsed && setIsCollapsed(false)}
           className={`flex items-center overflow-hidden transition-all duration-300 group/logo ${
@@ -82,14 +82,14 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
             />
             
             <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isCollapsed ? 'opacity-0 group-hover/logo:opacity-100' : 'opacity-0 pointer-events-none'}`}>
-              <ChevronRight size={22} className="text-slate-500 dark:text-zinc-400 group-hover/logo:text-blue-600 dark:group-hover/logo:text-red-400" />
+              <ChevronRight size={22} className="text-zinc-500 dark:text-slate-400 group-hover/logo:text-red-600 dark:group-hover/logo:text-blue-400" />
             </div>
           </div>
         </div>
 
         <button
           onClick={() => setIsCollapsed(true)}
-          className={`p-1.5 rounded-md hover:bg-slate-100 dark:hover:bg-zinc-800 text-slate-500 dark:text-zinc-400 hover:text-blue-600 dark:hover:text-red-500 transition-all duration-300 flex-shrink-0 ${
+          className={`p-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-slate-800 text-zinc-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-blue-500 transition-all duration-300 flex-shrink-0 ${
             isCollapsed ? 'w-0 p-0 opacity-0 overflow-hidden ml-0' : 'w-8 opacity-100 ml-1'
           }`}
           title="Collapse"
@@ -131,9 +131,9 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
             className={`w-full flex items-center px-3 py-2.5 rounded-md transition-colors text-sm font-medium overflow-hidden ${
               isGroupActive(['/test'])
                 ? openGroup === 'testing'
-                  ? 'text-blue-600 dark:text-red-400 bg-blue-50 dark:bg-red-900/10'
-                  : 'text-blue-600 dark:text-red-400'
-                : 'text-slate-600 dark:text-zinc-400 hover:bg-slate-100 dark:hover:bg-zinc-800/60 hover:text-slate-900 dark:hover:text-zinc-100'
+                  ? 'text-red-600 dark:text-blue-400 bg-red-50 dark:bg-blue-900/10'
+                  : 'text-red-600 dark:text-blue-400'
+                : 'text-zinc-600 dark:text-slate-400 hover:bg-zinc-100 dark:hover:bg-slate-800/60 hover:text-zinc-900 dark:hover:text-slate-100'
             }`}
           >
             <div className="flex-shrink-0 flex items-center justify-center w-5 h-5">
@@ -208,7 +208,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
       </nav>
 
       {/* BAGIAN BAWAH: Logo .webp dan Teks disesuaikan seperti gambar referensi - Sekarang Ganti Gambar Berbeda Berdasarkan Tema */}
-      <div className="border-t border-slate-200 dark:border-zinc-800 mt-auto flex justify-center">
+      <div className="border-t border-zinc-200 dark:border-slate-800 mt-auto flex justify-center">
         <div className="flex flex-col items-center justify-center overflow-hidden transition-all duration-300">
           <div className="flex items-center justify-center flex-shrink-0">
             {/* Gunakan logoSrc dinamis di sini */}
