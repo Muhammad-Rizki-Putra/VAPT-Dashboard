@@ -46,7 +46,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
   const navItemCls = (active: boolean) =>
     `flex items-center px-3 py-2.5 rounded-md transition-colors group cursor-pointer text-sm font-medium ${
       active
-        ? 'bg-red-600 dark:bg-blue-500 text-white'
+        ? 'bg-blue-800 dark:bg-blue-500 text-white'
         : 'text-zinc-600 dark:text-slate-400 hover:bg-zinc-100 dark:hover:bg-slate-800/60 hover:text-zinc-900 dark:hover:text-slate-100'
     }`;
 
@@ -82,14 +82,14 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
             />
             
             <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isCollapsed ? 'opacity-0 group-hover/logo:opacity-100' : 'opacity-0 pointer-events-none'}`}>
-              <ChevronRight size={22} className="text-zinc-500 dark:text-slate-400 group-hover/logo:text-red-600 dark:group-hover/logo:text-blue-400" />
+              <ChevronRight size={22} className="text-zinc-500 dark:text-slate-400 group-hover/logo:text-blue-800 dark:group-hover/logo:text-blue-400" />
             </div>
           </div>
         </div>
 
         <button
           onClick={() => setIsCollapsed(true)}
-          className={`p-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-slate-800 text-zinc-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-blue-500 transition-all duration-300 flex-shrink-0 ${
+          className={`p-1.5 rounded-md hover:bg-zinc-100 dark:hover:bg-slate-800 text-zinc-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-500 transition-all duration-300 flex-shrink-0 ${
             isCollapsed ? 'w-0 p-0 opacity-0 overflow-hidden ml-0' : 'w-8 opacity-100 ml-1'
           }`}
           title="Collapse"
@@ -131,8 +131,8 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
             className={`w-full flex items-center px-3 py-2.5 rounded-md transition-colors text-sm font-medium overflow-hidden ${
               isGroupActive(['/test'])
                 ? openGroup === 'testing'
-                  ? 'text-red-600 dark:text-blue-400 bg-red-50 dark:bg-blue-900/10'
-                  : 'text-red-600 dark:text-blue-400'
+                  ? 'text-blue-800 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/10'
+                  : 'text-blue-800 dark:text-blue-400'
                 : 'text-zinc-600 dark:text-slate-400 hover:bg-zinc-100 dark:hover:bg-slate-800/60 hover:text-zinc-900 dark:hover:text-slate-100'
             }`}
           >

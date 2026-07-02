@@ -163,7 +163,7 @@ export default function ReportDetailPage() {
         <div className="p-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800/50 rounded-lg">
           <p className="text-red-600 dark:text-red-400 font-semibold">{error || tr.errNotFound}</p>
         </div>
-        <Link href="/test/history" className="text-sm text-red-600 dark:text-blue-400 hover:underline">
+        <Link href="/test/history" className="text-sm text-blue-800 dark:text-blue-400 hover:underline">
           {tr.backHistory}
         </Link>
       </div>
@@ -202,7 +202,7 @@ export default function ReportDetailPage() {
         <div>
           <h1 className="text-2xl font-bold text-zinc-800 dark:text-slate-100 tracking-tight">{tr.title}</h1>
           <p className="text-sm text-zinc-500 dark:text-slate-400 mt-0.5">
-            <Link href="/test/history" className="hover:text-red-600 dark:hover:text-blue-400 transition-colors">{tr.backHistory}</Link>
+            <Link href="/test/history" className="hover:text-blue-800 dark:hover:text-blue-400 transition-colors">{tr.backHistory}</Link>
             <span className="mx-2 text-zinc-300 dark:text-slate-700">/</span>
             <span className="font-mono text-xs">{scanId}</span>
           </p>
@@ -210,7 +210,7 @@ export default function ReportDetailPage() {
         <button
           onClick={handlePrint}
           disabled={isPreparing}
-          className="bg-red-600 dark:bg-blue-500 text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-red-700 dark:hover:bg-blue-600 transition-colors cursor-pointer flex items-center space-x-2 disabled:bg-zinc-400 dark:disabled:bg-slate-700 disabled:cursor-not-allowed shadow-sm"
+          className="bg-blue-800 dark:bg-blue-500 text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-blue-900 dark:hover:bg-blue-600 transition-colors cursor-pointer flex items-center space-x-2 disabled:bg-zinc-400 dark:disabled:bg-slate-700 disabled:cursor-not-allowed shadow-sm"
         >
           {isPreparing
             ? <><Loader2 size={16} className="animate-spin" /><span>{tr.preparing}</span></>
@@ -226,7 +226,7 @@ export default function ReportDetailPage() {
       >
 
         {/* Title */}
-        <div className="text-center pb-6 border-b-2 border-red-600 dark:border-blue-500">
+        <div className="text-center pb-6 border-b-2 border-blue-800 dark:border-blue-500">
           <h1 className="text-2xl font-bold tracking-wider text-zinc-900 dark:text-slate-100 uppercase">{tr.formalTitle}</h1>
           <p className="text-sm text-zinc-600 dark:text-slate-400 mt-1">{tr.formalSubtitle}</p>
           <p className="text-xs text-zinc-500 dark:text-slate-500 mt-0.5">{tr.mode}: {result.testing_mode}</p>
@@ -248,7 +248,7 @@ export default function ReportDetailPage() {
 
         {/* 1. Executive Summary */}
         <div className="space-y-4 break-inside-avoid">
-          <h2 className="text-lg font-bold text-red-600 dark:text-blue-500 uppercase tracking-wide">{tr.s1Title}</h2>
+          <h2 className="text-lg font-bold text-blue-800 dark:text-blue-500 uppercase tracking-wide">{tr.s1Title}</h2>
           <p className="text-sm text-zinc-700 dark:text-slate-300 leading-relaxed text-justify">{result.exploit_summary}</p>
           <div className="grid grid-cols-4 border border-zinc-300 dark:border-slate-700 rounded-sm overflow-hidden text-center">
             <MetricBlock label="TOTAL"  count={result.summary.total}  bgColor="bg-blue-500" />
@@ -260,7 +260,7 @@ export default function ReportDetailPage() {
 
         {/* 2. Security Assessment */}
         <div className="space-y-5 break-inside-avoid">
-          <h2 className="text-lg font-bold text-red-600 dark:text-blue-500 uppercase tracking-wide">{tr.s2Title}</h2>
+          <h2 className="text-lg font-bold text-blue-800 dark:text-blue-500 uppercase tracking-wide">{tr.s2Title}</h2>
 
           <div className="grid grid-cols-2 gap-6 items-start">
             {/* Grade Badge */}
@@ -309,10 +309,10 @@ export default function ReportDetailPage() {
 
         {/* 3. Vulnerability Findings */}
         <div className="space-y-4">
-          <h2 className="text-lg font-bold text-red-600 dark:text-blue-500 uppercase tracking-wide break-inside-avoid">{tr.s3Title}</h2>
+          <h2 className="text-lg font-bold text-blue-800 dark:text-blue-500 uppercase tracking-wide break-inside-avoid">{tr.s3Title}</h2>
           <div className="overflow-x-auto border border-zinc-300 dark:border-slate-700 rounded-sm">
             <table className="w-full text-sm text-left text-zinc-700 dark:text-slate-300">
-              <thead className="bg-red-600 dark:bg-blue-800 text-white table-header-group">
+              <thead className="bg-blue-800 dark:bg-blue-800 text-white table-header-group">
                 <tr>
                   <th className="px-4 py-2.5 font-semibold text-center border-r border-zinc-300/20 w-12">{tr.colNo}</th>
                   <th className="px-4 py-2.5 font-semibold border-r border-zinc-300/20">{tr.colName}</th>
@@ -347,7 +347,7 @@ export default function ReportDetailPage() {
 
         {/* 4. Recommendations */}
         <div className="space-y-4 break-inside-avoid">
-          <h2 className="text-lg font-bold text-red-600 dark:text-blue-500 uppercase tracking-wide">{tr.s4Title}</h2>
+          <h2 className="text-lg font-bold text-blue-800 dark:text-blue-500 uppercase tracking-wide">{tr.s4Title}</h2>
           <div className="space-y-4">
             {result.vulnerabilities.map((v, idx) => (
               <div key={v.id} className="text-sm break-inside-avoid">
@@ -363,7 +363,7 @@ export default function ReportDetailPage() {
 
         {/* 5. Conclusion */}
         <div className="space-y-4 pt-4 border-t border-zinc-200 dark:border-slate-800 break-inside-avoid">
-          <h2 className="text-lg font-bold text-red-600 dark:text-blue-500 uppercase tracking-wide">{tr.s5Title}</h2>
+          <h2 className="text-lg font-bold text-blue-800 dark:text-blue-500 uppercase tracking-wide">{tr.s5Title}</h2>
           <p className="text-sm text-zinc-700 dark:text-slate-300 leading-relaxed text-justify">{conclusion}</p>
         </div>
 
@@ -384,7 +384,7 @@ export default function ReportDetailPage() {
 function MetaRow({ label, value }: { label: string; value: string }) {
   return (
     <tr className="border-b border-zinc-300 dark:border-slate-700 last:border-b-0 break-inside-avoid">
-      <td className="bg-red-600 dark:bg-blue-800 text-white font-medium px-4 py-2.5 w-1/4">{label}</td>
+      <td className="bg-blue-800 text-white font-medium px-4 py-2.5 w-1/4">{label}</td>
       <td className="bg-zinc-50 dark:bg-slate-800/50 px-4 py-2.5 text-zinc-800 dark:text-slate-200">{value}</td>
     </tr>
   );
@@ -393,7 +393,7 @@ function MetaRow({ label, value }: { label: string; value: string }) {
 function MetricBlock({ label, count, bgColor }: { label: string; count: number; bgColor: string }) {
   return (
     <div className="flex flex-col border-r border-zinc-300 dark:border-slate-700 last:border-r-0 break-inside-avoid">
-      <div className="bg-red-600 dark:bg-blue-800 text-white text-xs font-bold py-2 tracking-wider">{label}</div>
+      <div className="bg-blue-800 text-white text-xs font-bold py-2 tracking-wider">{label}</div>
       <div className={`${bgColor} text-white text-2xl font-bold py-3`}>{count}</div>
     </div>
   );

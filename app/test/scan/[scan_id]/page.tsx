@@ -95,11 +95,11 @@ export default function ScanProgressPage() {
         </div>
         <div className="flex justify-center gap-4">
           <Link href="/test/new">
-            <button className="bg-red-600 dark:bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700 dark:hover:bg-blue-600 transition-colors cursor-pointer">
+            <button className="bg-blue-800 dark:bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-900 dark:hover:bg-blue-600 transition-colors cursor-pointer">
               {t.scan.newScan}
             </button>
           </Link>
-          <Link href="/test/history" className="flex items-center text-sm text-zinc-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-blue-400 transition-colors">
+          <Link href="/test/history" className="flex items-center text-sm text-zinc-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-400 transition-colors">
             {t.scan.backHistory}
           </Link>
         </div>
@@ -133,18 +133,18 @@ export default function ScanProgressPage() {
         <div className="flex items-center gap-4">
           <div className="flex-1 bg-zinc-100 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden">
             <div
-              className="bg-red-600 dark:bg-blue-500 h-2.5 rounded-full transition-all duration-700 ease-out"
+              className="bg-blue-800 dark:bg-blue-500 h-2.5 rounded-full transition-all duration-700 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>
-          <span className="text-lg font-bold text-red-600 dark:text-blue-400 w-12 text-right tabular-nums">
+          <span className="text-lg font-bold text-blue-800 dark:text-blue-400 w-12 text-right tabular-nums">
             {progress}%
           </span>
         </div>
 
         <div className="flex items-center space-x-2 text-sm text-zinc-600 dark:text-slate-400">
           {!isCompleted && (
-            <svg className="animate-spin h-3.5 w-3.5 text-red-500 dark:text-blue-500 flex-shrink-0" viewBox="0 0 24 24" fill="none">
+            <svg className="animate-spin h-3.5 w-3.5 text-blue-800 dark:text-blue-500 flex-shrink-0" viewBox="0 0 24 24" fill="none">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
             </svg>
@@ -161,14 +161,14 @@ export default function ScanProgressPage() {
               <React.Fragment key={threshold}>
                 <div className="flex flex-col items-center gap-1 flex-1 min-w-0">
                   <div className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
-                    done ? 'bg-red-500 dark:bg-blue-500' : active ? 'bg-red-300 dark:bg-blue-300 animate-pulse' : 'bg-zinc-200 dark:bg-slate-700'
+                    done ? 'bg-blue-800 dark:bg-blue-500' : active ? 'bg-blue-600 dark:bg-blue-300 animate-pulse' : 'bg-zinc-200 dark:bg-slate-700'
                   }`} />
                   <span className={`text-[9px] text-center leading-tight transition-colors duration-300 truncate w-full ${
                     done ? 'text-zinc-600 dark:text-slate-400' : 'text-zinc-300 dark:text-slate-600'
                   }`}>{label.split(' — ')[0]}</span>
                 </div>
                 {i < steps.length - 1 && (
-                  <div className={`h-px flex-1 transition-colors duration-300 mb-3 ${done ? 'bg-red-400 dark:bg-blue-400' : 'bg-zinc-200 dark:bg-slate-700'}`} />
+                  <div className={`h-px flex-1 transition-colors duration-300 mb-3 ${done ? 'bg-blue-700 dark:bg-blue-400' : 'bg-zinc-200 dark:bg-slate-700'}`} />
                 )}
               </React.Fragment>
             );
@@ -233,7 +233,7 @@ export default function ScanProgressPage() {
       <div className="text-center pb-4">
         <Link
           href="/test/history"
-          className="text-sm text-zinc-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-blue-400 transition-colors"
+          className="text-sm text-zinc-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-400 transition-colors"
         >
           {t.scan.backToHistory}
         </Link>

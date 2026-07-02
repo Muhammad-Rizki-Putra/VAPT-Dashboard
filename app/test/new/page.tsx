@@ -115,20 +115,20 @@ export default function NewScanPage() {
                     onClick={() => setOpenCategory(isOpen ? null : category.title)}
                     className={`w-full flex items-center justify-between px-4 py-3 text-left transition-colors duration-200 ${
                       isOpen
-                        ? 'bg-red-50 dark:bg-blue-900/10 border-b border-red-100 dark:border-blue-900/30'
+                        ? 'bg-blue-50 dark:bg-blue-900/10 border-b border-blue-100 dark:border-blue-900/30'
                         : 'bg-zinc-50 dark:bg-slate-800/50 hover:bg-zinc-100 dark:hover:bg-slate-800'
                     }`}
                   >
                     <span className={`text-sm font-bold border-l-4 pl-3 transition-colors duration-200 ${
                       isOpen
-                        ? 'text-red-700 dark:text-blue-400 border-red-600 dark:border-blue-500'
+                        ? 'text-blue-800 dark:text-blue-400 border-blue-800 dark:border-blue-500'
                         : 'text-zinc-700 dark:text-slate-200 border-zinc-300 dark:border-slate-600'
                     }`}>
                       {category.title}
                     </span>
                     <div className="flex items-center gap-2 flex-shrink-0">
                       {hasSelection && (
-                        <span className="text-[10px] font-semibold text-red-600 dark:text-blue-400 bg-red-100 dark:bg-blue-900/30 px-2 py-0.5 rounded-full">
+                        <span className="text-[10px] font-semibold text-blue-800 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30 px-2 py-0.5 rounded-full">
                           ✓ selected
                         </span>
                       )}
@@ -152,14 +152,14 @@ export default function NewScanPage() {
                               key={item.id}
                               className={`flex items-start space-x-3 p-4 border rounded-lg cursor-pointer transition-all duration-300 ease-in-out ${
                                 isSelected
-                                  ? 'border-red-600 dark:border-blue-500 bg-red-50/50 dark:bg-blue-900/10 shadow-md'
-                                  : 'border-zinc-200 dark:border-slate-800 hover:border-red-600/40 dark:hover:border-blue-500/40 hover:bg-zinc-50 dark:hover:bg-slate-800/50'
+                                  ? 'border-blue-800 dark:border-blue-500 bg-blue-50/50 dark:bg-blue-900/10 shadow-md'
+                                  : 'border-zinc-200 dark:border-slate-800 hover:border-blue-800/40 dark:hover:border-blue-500/40 hover:bg-zinc-50 dark:hover:bg-slate-800/50'
                               }`}
                             >
                               <input
                                 type="radio"
                                 name="platform"
-                                className="mt-1 text-red-600 dark:text-blue-500 focus:ring-red-600 dark:focus:ring-blue-500 cursor-pointer"
+                                className="mt-1 text-blue-800 dark:text-blue-500 focus:ring-blue-800 dark:focus:ring-blue-500 cursor-pointer"
                                 checked={isSelected}
                                 onChange={() => setSelectedPlatform(item.id)}
                               />
@@ -199,11 +199,11 @@ export default function NewScanPage() {
                 {/* Target URL */}
                 <div className="space-y-1.5">
                   <label className="block text-sm font-semibold text-zinc-800 dark:text-slate-200 transition-colors duration-300">
-                    {t.newScan.targetUrl} <span className="text-red-500">{t.newScan.required}</span>
+                    {t.newScan.targetUrl} <span className="text-blue-800">{t.newScan.required}</span>
                   </label>
                   <input
                     type="url"
-                    className="w-full p-2.5 border border-zinc-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-zinc-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-red-600 dark:focus:ring-blue-500 focus:border-red-600 dark:focus:border-blue-500 outline-none text-sm transition-all duration-300 placeholder-zinc-400 dark:placeholder-slate-600"
+                    className="w-full p-2.5 border border-zinc-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-zinc-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-blue-800 dark:focus:ring-blue-500 focus:border-blue-800 dark:focus:border-blue-500 outline-none text-sm transition-all duration-300 placeholder-zinc-400 dark:placeholder-slate-600"
                     placeholder="http://localhost:3002"
                     value={targetUrl}
                     onChange={(e) => setTargetUrl(e.target.value)}
@@ -214,7 +214,7 @@ export default function NewScanPage() {
                 {/* Testing Mode */}
                 <div className="space-y-2 pt-1">
                   <label className="block text-sm font-semibold text-zinc-800 dark:text-slate-200 transition-colors duration-300">
-                    {t.newScan.testingMode} <span className="text-red-500 ">{t.newScan.required}</span>
+                    {t.newScan.testingMode} <span className="text-blue-800">{t.newScan.required}</span>
                   </label>
                   <div className="grid grid-cols-3 gap-3">
                     {TESTING_MODES.map((m) => (
@@ -222,8 +222,8 @@ export default function NewScanPage() {
                         key={m.value}
                         className={`flex flex-col p-3 border rounded-lg cursor-pointer transition-all duration-200 ${
                           testingMode === m.value
-                            ? 'border-red-600 dark:border-blue-500 bg-red-50/50 dark:bg-blue-900/10'
-                            : 'border-zinc-200 dark:border-slate-700 hover:border-red-400/60 dark:hover:border-blue-600/40 hover:bg-white dark:hover:bg-slate-800/40'
+                            ? 'border-blue-800 dark:border-blue-500 bg-blue-50/50 dark:bg-blue-900/10'
+                            : 'border-zinc-200 dark:border-slate-700 hover:border-blue-700/60 dark:hover:border-blue-600/40 hover:bg-white dark:hover:bg-slate-800/40'
                         }`}
                       >
                         <input
@@ -234,7 +234,7 @@ export default function NewScanPage() {
                           checked={testingMode === m.value}
                           onChange={() => { setTestingMode(m.value); setUsername(''); setPassword(''); setSwaggerUrl(''); }}
                         />
-                        <span className={`text-xs font-bold mb-0.5 ${testingMode === m.value ? 'text-red-600 dark:text-blue-400' : 'text-zinc-700 dark:text-slate-300'}`}>
+                        <span className={`text-xs font-bold mb-0.5 ${testingMode === m.value ? 'text-blue-800 dark:text-blue-400' : 'text-zinc-700 dark:text-slate-300'}`}>
                           {m.label}
                         </span>
                         <span className="text-[10px] text-zinc-500 dark:text-slate-400 leading-relaxed">{m.desc}</span>
@@ -248,11 +248,11 @@ export default function NewScanPage() {
                   <div className="grid grid-cols-2 gap-4 pt-1">
                     <div className="space-y-1.5">
                       <label className="block text-xs font-semibold text-zinc-700 dark:text-slate-300">
-                        {t.newScan.username} <span className="text-red-500">{t.newScan.required}</span>
+                        {t.newScan.username} <span className="text-blue-800">{t.newScan.required}</span>
                       </label>
                       <input
                         type="text"
-                        className="w-full p-2.5 border border-zinc-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-zinc-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-red-600 dark:focus:ring-blue-500 outline-none text-sm transition-all duration-300 placeholder-zinc-400 dark:placeholder-slate-600"
+                        className="w-full p-2.5 border border-zinc-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-zinc-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-blue-800 dark:focus:ring-blue-500 outline-none text-sm transition-all duration-300 placeholder-zinc-400 dark:placeholder-slate-600"
                         placeholder="admin@example.com"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
@@ -260,11 +260,11 @@ export default function NewScanPage() {
                     </div>
                     <div className="space-y-1.5">
                       <label className="block text-xs font-semibold text-zinc-700 dark:text-slate-300">
-                        {t.newScan.password} <span className="text-red-500">{t.newScan.required}</span>
+                        {t.newScan.password} <span className="text-blue-800">{t.newScan.required}</span>
                       </label>
                       <input
                         type="password"
-                        className="w-full p-2.5 border border-zinc-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-zinc-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-red-600 dark:focus:ring-blue-500 outline-none text-sm transition-all duration-300 placeholder-zinc-400 dark:placeholder-slate-600"
+                        className="w-full p-2.5 border border-zinc-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-zinc-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-blue-800 dark:focus:ring-blue-500 outline-none text-sm transition-all duration-300 placeholder-zinc-400 dark:placeholder-slate-600"
                         placeholder="••••••••"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -277,11 +277,11 @@ export default function NewScanPage() {
                 <AnimatedWrapper show={needsSwagger}>
                   <div className="space-y-1.5 pt-1">
                     <label className="block text-xs font-semibold text-zinc-700 dark:text-slate-300">
-                      {t.newScan.swaggerUrl} <span className="text-red-500">{t.newScan.required}</span>
+                      {t.newScan.swaggerUrl} <span className="text-blue-800">{t.newScan.required}</span>
                     </label>
                     <input
                       type="url"
-                      className="w-full p-2.5 border border-zinc-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-zinc-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-red-600 dark:focus:ring-blue-500 outline-none text-sm transition-all duration-300 placeholder-zinc-400 dark:placeholder-slate-600"
+                      className="w-full p-2.5 border border-zinc-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-zinc-800 dark:text-slate-100 rounded-md focus:ring-2 focus:ring-blue-800 dark:focus:ring-blue-500 outline-none text-sm transition-all duration-300 placeholder-zinc-400 dark:placeholder-slate-600"
                       placeholder="http://localhost:3002/api-docs"
                       value={swaggerUrl}
                       onChange={(e) => setSwaggerUrl(e.target.value)}
@@ -321,7 +321,7 @@ export default function NewScanPage() {
           <button
             type="submit"
             disabled={!canSubmit}
-            className="bg-red-600 dark:bg-blue-500 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-red-700 dark:hover:bg-blue-600 transition-colors shadow-sm disabled:bg-zinc-300 dark:disabled:bg-slate-800 disabled:text-zinc-500 dark:disabled:text-slate-500 disabled:cursor-not-allowed cursor-pointer flex items-center space-x-2"
+            className="bg-blue-800 dark:bg-blue-500 text-white px-6 py-2.5 rounded-md font-semibold hover:bg-blue-900 dark:hover:bg-blue-600 transition-colors shadow-sm disabled:bg-zinc-300 dark:disabled:bg-slate-800 disabled:text-zinc-500 dark:disabled:text-slate-500 disabled:cursor-not-allowed cursor-pointer flex items-center space-x-2"
           >
             {isSubmitting ? (
               <>

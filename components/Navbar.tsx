@@ -19,7 +19,7 @@ export default function Navbar() {
     <header className="h-16 bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between px-6 sticky top-0 z-10 transition-colors duration-300">
       <h1 className="text-lg font-bold text-slate-800 dark:text-slate-100 tracking-tight">
         {t.appTitle}{' '}
-        <span className="text-red-600 dark:text-blue-500 font-semibold">
+        <span className="text-blue-800 dark:text-blue-500 font-semibold">
           - {t.appSubtitle}
         </span>
       </h1>
@@ -31,7 +31,7 @@ export default function Navbar() {
           {mounted && (
             <button
               onClick={toggleLang}
-              className="px-2.5 py-1.5 rounded-md text-xs font-bold border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-red-500 hover:text-red-600 dark:hover:border-blue-500 dark:hover:text-blue-400 transition-colors cursor-pointer"
+              className="px-2.5 py-1.5 rounded-md text-xs font-bold border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-blue-800 hover:text-blue-800 dark:hover:border-blue-500 dark:hover:text-blue-400 transition-colors cursor-pointer"
               title={lang === 'id' ? 'Switch to English' : 'Ganti ke Indonesia'}
             >
               {lang === 'id' ? 'ID' : 'EN'}
@@ -51,7 +51,7 @@ export default function Navbar() {
         </div>
 
         {/* User avatar placeholder */}
-        <div className="w-8 h-8 rounded-full bg-red-100 dark:bg-blue-900/50 border border-red-200 dark:border-blue-800 flex items-center justify-center text-xs font-bold text-red-700 dark:text-blue-400 cursor-pointer transition-colors">
+        <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/50 border border-blue-200 dark:border-blue-800 flex items-center justify-center text-xs font-bold text-blue-800 dark:text-blue-400 cursor-pointer transition-colors">
           OP
         </div>
       </div>

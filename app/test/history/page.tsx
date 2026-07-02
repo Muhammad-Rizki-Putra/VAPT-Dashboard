@@ -77,12 +77,12 @@ export default function HistoryPage() {
         <div className="flex items-center space-x-3">
           <button
             onClick={() => { fetchScans(); }}
-            className="text-sm text-zinc-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
+            className="text-sm text-zinc-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-400 transition-colors cursor-pointer"
           >
             {t.history.refresh}
           </button>
           <Link href="/test/new">
-            <button className="bg-red-600 dark:bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700 dark:hover:bg-blue-600 transition-colors cursor-pointer shadow-sm">
+            <button className="bg-blue-800 dark:bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-900 dark:hover:bg-blue-600 transition-colors cursor-pointer shadow-sm">
               {t.history.newTest}
             </button>
           </Link>
@@ -109,7 +109,7 @@ export default function HistoryPage() {
         ) : groupedScans.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 text-zinc-400 dark:text-slate-500 text-sm space-y-2">
             <p>{t.history.empty}</p>
-            <Link href="/test/new" className="text-red-600 dark:text-blue-400 hover:underline">
+            <Link href="/test/new" className="text-blue-800 dark:text-blue-400 hover:underline">
               {t.history.emptyLink}
             </Link>
           </div>
@@ -166,7 +166,7 @@ export default function HistoryPage() {
                           <div className="flex justify-end gap-3 items-center">
                             {/* Tombol Scan Again - Mengarahkan ke form new dengan parameter */}
                             <Link href={`/test/new?url=${encodeURIComponent(group.target_url)}&mode=${encodeURIComponent(group.testing_mode)}`} onClick={(e) => e.stopPropagation()}>
-                              <button className="text-zinc-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-blue-400 font-medium text-xs border border-zinc-300 dark:border-slate-700 px-2 py-1 rounded transition-colors">
+                              <button className="text-zinc-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-blue-400 font-medium text-xs border border-zinc-300 dark:border-slate-700 px-2 py-1 rounded transition-colors">
                                 Scan Ulang
                               </button>
                             </Link>
@@ -178,7 +178,7 @@ export default function HistoryPage() {
                       {isExpanded && group.history.length > 1 && (
                         <tr>
                           <td colSpan={6} className="p-0 border-b-0">
-                            <div className="bg-zinc-50/50 dark:bg-slate-800/30 px-10 py-3 border-l-4 border-red-500 dark:border-blue-500">
+                            <div className="bg-zinc-50/50 dark:bg-slate-800/30 px-10 py-3 border-l-4 border-blue-800 dark:border-blue-500">
                               <table className="w-full text-xs text-left text-zinc-500 dark:text-slate-400">
                                 <thead>
                                   <tr>
@@ -201,13 +201,13 @@ export default function HistoryPage() {
                                       <td className="py-2 text-right">
                                         {row.status === 'completed' ? (
                                           <Link href={`/test/report/${row.scan_id}`}>
-                                            <button className="text-red-600 dark:text-blue-400 font-medium hover:underline cursor-pointer transition-colors">
+                                            <button className="text-blue-800 dark:text-blue-400 font-medium hover:underline cursor-pointer transition-colors">
                                               {t.history.viewReport}
                                             </button>
                                           </Link>
                                         ) : row.status === 'running' || row.status === 'started' ? (
                                           <Link href={`/test/scan/${row.scan_id}`}>
-                                            <button className="text-red-600 dark:text-blue-400 font-medium hover:underline cursor-pointer transition-colors">
+                                            <button className="text-blue-800 dark:text-blue-400 font-medium hover:underline cursor-pointer transition-colors">
                                               {t.history.viewProgress}
                                             </button>
                                           </Link>
@@ -247,8 +247,8 @@ interface StatusLabels {
 function StatusBadge({ status, progress, labels }: { status: string; progress: number; labels: StatusLabels }) {
   const map: Record<string, { style: string; label: string }> = {
     completed: { style: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800/50', label: labels.statusCompleted },
-    running: { style: 'bg-red-100 dark:bg-blue-900/30 text-red-700 dark:text-blue-400 border-red-200 dark:border-blue-800/50', label: `${labels.statusRunning} ${progress}%` },
-    started: { style: 'bg-red-100 dark:bg-blue-900/30 text-red-700 dark:text-blue-400 border-red-200 dark:border-blue-800/50', label: labels.statusStarted },
+    running: { style: 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 border-blue-200 dark:border-blue-800/50', label: `${labels.statusRunning} ${progress}%` },
+    started: { style: 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 border-blue-200 dark:border-blue-800/50', label: labels.statusStarted },
     error: { style: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border-red-200 dark:border-red-800/50', label: labels.statusError },
   };
   const { style, label } = map[status] ?? {
@@ -259,7 +259,7 @@ function StatusBadge({ status, progress, labels }: { status: string; progress: n
   return (
     <span className={`px-2.5 py-1 rounded-full text-[10px] uppercase tracking-wider font-semibold border ${style} flex items-center w-max space-x-1.5 transition-colors duration-300`}>
       {(status === 'running' || status === 'started') && (
-        <span className="w-1.5 h-1.5 rounded-full bg-red-500 dark:bg-blue-500 animate-pulse" />
+        <span className="w-1.5 h-1.5 rounded-full bg-blue-800 dark:bg-blue-500 animate-pulse" />
       )}
       <span>{label}</span>
     </span>
